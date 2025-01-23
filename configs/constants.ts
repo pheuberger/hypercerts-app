@@ -25,12 +25,12 @@ export const prodNetChains = [optimism, celo, base, arbitrum] as const;
 export const SUPPORTED_CHAINS = (
   ENVIRONMENT === "production" ? prodNetChains : testNetChains
 ) as readonly [Chain, ...Chain[]];
-const allChains = [
+
+const allChainIds = [
   ...testNetChains.map((x) => x.id),
   ...prodNetChains.map((x) => x.id),
 ] as const;
-
-export type SupportedChainIdType = (typeof allChains)[number];
+export type SupportedChainIdType = (typeof allChainIds)[number];
 
 export type ApiSigningDomain = {
   name: string;
